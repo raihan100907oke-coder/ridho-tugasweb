@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ridho Web Studio | Tugas Pemrograman Web</title>
+
+<style>
+/* ==================== DASAR WEBSITE ==================== */
+:root {
+    --primary: #4f46e5;
+    --secondary: #7c3aed;
+    --dark: #172033;
+    --muted: #64748b;
+    --light: #f5f7ff;
+    --border: #e5e7eb;
+    --success: #059669;
+    --radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button, input[type="submit"], input[type="reset"],
+input[type="button"] {
+    cursor: pointer;
+}
+
+button:focus-visible, input:focus-visible,
+select:focus-visible, a:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 3px;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+section {
+    scroll-margin-top: 95px;
+}
+
+/* ==================== NAVIGASI ==================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* ==================== HERO ==================== */
+.hero {
+    padding: 75px 0;
+    background:
+        radial-gradient(circle at 90% 20%, #c4b5fd 0, transparent 28%),
+        linear-gradient(135deg, #eef2ff, #f8fafc 60%, #ede9fe);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #e0e7ff;
+    color: #4338ca;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 50px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    color: var(--muted);
+    margin-bottom: 24px;
+    max-width: 600px;
+}
+
+.hero-card {
+    padding: 28px;
+    background: white;
+    border: 1px solid #e0e7ff;
+    border-radius: 22px;
+    box-shadow: 0 15px 45px #4338ca15;
+}
+
+.hero-card .symbol {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.hero-card h3 {
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    margin-bottom: 0;
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 9px;
+    padding: 10px 17px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #3730a3;
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: var(--dark);
+}
+
+.btn-danger {
+    background: #dc2626;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-light {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.btn-light:hover {
+    background: #c7d2fe;
+}
+
+/* ==================== IDENTITAS ==================== */
+.identity {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: -24px;
+    position: relative;
+}
+
+.identity-card {
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 25px #17203308;
+}
+
+.identity-card small {
+    display: block;
+    color: var(--muted);
+}
+
+.identity-card strong {
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+/* ==================== KONTEN ==================== */
+.main-content {
+    padding: 45px 0 65px;
+}
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+.section-title small {
+    color: var(--primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title h2 {
+    font-size: 27px;
+    line-height: 1.3;
+    margin-top: 5px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px #17203306;
+    min-width: 0;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #e0e7ff;
+    color: #4338ca;
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+.info-box {
+    background: #f1f5ff;
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: #eef2ff;
+    color: #3730a3;
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.field input:not([type="radio"]):not([type="checkbox"]),
+.field select {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: var(--dark);
+}
+
+.field input:focus, .field select:focus {
+    border-color: var(--primary);
+    outline: 2px solid #c7d2fe;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.result {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    overflow-wrap: anywhere;
+}
+
+.result:empty {
+    display: none;
+}
+
+.result p {
+    margin: 4px 0;
+}
+
+pre {
+    font-family: "Consolas", monospace;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.list-links {
+    padding-left: 22px;
+}
+
+.list-links li {
+    margin: 6px 0;
+}
+
+.list-links li:nth-child(even) a {
+    color: #059669;
+}
+
+.list-links li:nth-child(odd) a {
+    color: #7c3aed;
+}
+
+.big {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #eef2ff;
+    border-radius: 10px;
+    padding: 14px;
+    color: #4338ca;
+    font-weight: 700;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: bergerak 12s linear infinite;
+}
+
+@keyframes bergerak {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.clock {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    font-family: Consolas, monospace;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+
+.date-box {
+    text-align: center;
+    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.footer {
+    padding: 28px 0;
+    background: #172033;
+    color: #cbd5e1;
+    text-align: center;
+}
+
+.footer strong {
+    color: white;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 760px) {
+    .nav-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 10px 17px;
+    }
+
+    .hero {
+        padding: 48px 0;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .identity {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    .section-title h2 {
+        font-size: 23px;
+    }
+
+    .clock {
+        font-size: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .4m !important;
+        transition-duration: .4m !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<nav class="navbar">
+    <div class="container nav-inner">
+        <a href="#beranda" class="logo">Ridho<span>.Web</span></a>
+        <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#mahasiswa">Mahasiswa</a></li>
+            <li><a href="#tiket">Tiket</a></li>
+            <li><a href="#beasiswa">Beasiswa</a></li>
+            <li><a href="#latihan">Latihan JS</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero" id="beranda">
+    <div class="container hero-content">
+        <div>
+            <span class="badge">PROJECT PEMROGRAMAN WEB 2026</span>
+            <h1>Belajar Web dengan <span>Kreativitas</span> dan Teknologi</h1>
+            <p>
+                Website pembelajaran yang menggabungkan HTML, CSS,
+                dan JavaScript dalam satu halaman interaktif.
+                Dibuat untuk menampilkan latihan pemrograman web
+                secara modern dan responsif.
+            </p>
+            <a href="#mahasiswa" class="btn">Jelajahi Website ↓</a>
+        </div>
+        <div class="hero-card">
+            <div class="symbol">💻</div>
+            <h3>Web Development Project</h3>
+            <p class="muted">
+                Eksplorasi tabel, formulir, percabangan, perulangan,
+                objek Date, objek Math, dan berbagai fitur JavaScript.
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="container identity">
+    <div class="identity-card">
+        <small>Nama Mahasiswa</small>
+        <strong>Ridho</strong>
+    </div>
+    <div class="identity-card">
+        <small>Nomor Induk Mahasiswa (NIM)</small>
+        <strong>251091700125</strong>
+    </div>
+</div>
+
+<main class="container main-content">
+
+<!-- 1. TABEL MAHASISWA -->
+<section id="mahasiswa">
+    <div class="section-title">
+        <small>Bagian 01</small>
+        <h2>Data Mahasiswa</h2>
+        <p>Contoh penyajian data mahasiswa menggunakan tabel HTML.</p>
+    </div>
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Tempat, Tanggal Lahir</th>
+                        <th>Jurusan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12110001</td>
+                        <td>Anita</td>
+                        <td>Cengkareng</td>
+                        <td>Jakarta, 20 Agustus 1990</td>
+                        <td>Sistem Informasi</td>
+                    </tr>
+                    <tr>
+                        <td>12110002</td>
+                        <td>Aditya</td>
+                        <td>Tangerang</td>
+                        <td>Semarang, 01 Januari 1989</td>
+                        <td>Sistem Informasi</td>
+                    </tr>
+                    <tr>
+                        <td>12110003</td>
+                        <td>Firman</td>
+                        <td>Bogor</td>
+                        <td>Jakarta, 18 September 1988</td>
+                        <td>Sistem Informasi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 2. PERHITUNGAN TIKET -->
+<section id="tiket">
+    <div class="section-title">
+        <small>Bagian 02</small>
+        <h2>Aplikasi Perhitungan Tiket</h2>
+        <p>Travel Bintang Abadi — hitung harga tiket dan diskon member.</p>
+    </div>
+    <div class="card">
+        <h3>🎫 Form Pemesanan Tiket</h3>
+        <form id="formTiket">
+            <div class="form-grid">
+                <div>
+                    <div class="field">
+                        <label for="namaTiket">Nama Pemesan</label>
+                        <input id="namaTiket" required placeholder="Masukkan nama">
+                    </div>
+                    <div class="field">
+                        <label for="tujuan">Tujuan Perjalanan</label>
+                        <select id="tujuan">
+                            <option value="Jakarta">Jakarta — Rp100.000</option>
+                            <option value="Cirebon">Cirebon — Rp150.000</option>
+                            <option value="Tasikmalaya">Tasikmalaya — Rp200.000</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="jumlahTiket">Jumlah Tiket</label>
+                        <input type="number" id="jumlahTiket"
+                               min="1" max="100" required placeholder="Contoh: 2">
+                    </div>
+                    <label>
+                        <input type="checkbox" id="member"> Saya adalah member (diskon 10%)
+                    </label>
+                </div>
+                <div>
+                    <div class="info-box">
+                        <p>Harga tiket: <strong id="hargaTiket">Rp100.000</strong></p>
+                        <p>Subtotal: <strong id="subtotal">Rp0</strong></p>
+                        <p>Diskon: <strong id="diskon">Rp0</strong></p>
+                        <hr style="margin:12px 0; border:0; border-top:1px solid #c7d2fe">
+                        <p>Total bayar:</p>
+                        <div class="big" id="totalBayar">Rp0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn">Hitung Total</button>
+                <button type="reset" class="btn btn-danger">Ulang</button>
+            </div>
+            <div class="result" id="hasilTiket" aria-live="polite"></div>
+        </form>
+    </div>
+</section>
+
+<!-- 3. VARIABEL, STRING DAN PERULANGAN -->
+<section id="dasar">
+    <div class="section-title">
+        <small>Bagian 03</small>
+        <h2>Dasar Pemrograman JavaScript</h2>
+        <p>Contoh variabel, penggabungan string, dan perulangan for.</p>
+    </div>
+    <div class="card">
+        <h3><span class="number">1</span>Deklarasi Variabel</h3>
+        <div class="info-box" id="outputVariabel"></div>
+
+        <h3><span class="number">2</span>Penggabungan String</h3>
+        <div class="info-box" id="outputString"></div>
+
+        <h3><span class="number">3</span>Perulangan For (20 kali)</h3>
+        <div class="info-box" style="max-height:250px; overflow:auto"
+             id="outputFor"></div>
+    </div>
+</section>
+
+<!-- 4. BEASISWA -->
+<section id="beasiswa">
+    <div class="section-title">
+        <small>Bagian 04</small>
+        <h2>Aplikasi Penerimaan Beasiswa</h2>
+        <p>Simulasi pengolahan formulir dan seleksi berdasarkan IPK.</p>
+    </div>
+    <div class="card">
+        <form id="formBeasiswa">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="namaBeasiswa">Nama Lengkap</label>
+                    <input id="namaBeasiswa" required>
+                </div>
+                <div class="field">
+                    <label for="nimBeasiswa">NIM</label>
+                    <input id="nimBeasiswa" required>
+                </div>
+                <div class="field">
+                    <label for="kelasBeasiswa">Kelas</label>
+                    <input id="kelasBeasiswa" required>
+                </div>
+                <div class="field">
+                    <label for="jurusanBeasiswa">Jurusan</label>
+                    <select id="jurusanBeasiswa">
+                        <option>Sistem Informasi</option>
+                        <option>Teknik Informatika</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="jekel">Jenis Kelamin</label>
+                    <select id="jekel" required>
+                        <option value="">Pilih jenis kelamin</option>
+                        <option>Pria</option>
+                        <option>Wanita</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="ipk">IPK (0,00–4,00)</label>
+                    <input type="number" id="ipk" min="0" max="4"
+                           step="0.01" required placeholder="Contoh: 3.50">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn" type="submit">Proses Data</button>
+                <button class="btn btn-danger" type="reset">Batal</button>
+            </div>
+        </form>
+        <div class="result" id="hasilBeasiswa" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- 5. PSEUDO CLASS -->
+<section id="latihan">
+    <div class="section-title">
+        <small>Bagian 05</small>
+        <h2>Latihan CSS Pseudo-Class</h2>
+        <p>Penggunaan selector untuk mengatur warna tautan.</p>
+    </div>
+    <div class="card">
+        <p><strong>Hello World!</strong></p>
+        <ul class="list-links">
+            <li><a href="#mahasiswa">Link 1 — Data Mahasiswa</a></li>
+            <li><a href="#tiket">Link 2 — Perhitungan Tiket</a></li>
+            <li><a href="#beasiswa">Link 3 — Beasiswa</a></li>
+            <li><a href="#tanggal">Link 4 — Objek Date</a></li>
+            <li><a href="#math">Link 5 — Objek Math</a></li>
+        </ul>
+        <p class="muted">Warna tautan diatur melalui :first-child,
+        :last-child, :nth-child(even), dan :nth-child(odd).</p>
+    </div>
+</section>
+
+<!-- 6. ALERT -->
+<section id="alert">
+    <div class="section-title">
+        <small>Bagian 06</small>
+        <h2>Latihan Fungsi Alert</h2>
+        <p>Menampilkan pesan melalui fungsi JavaScript.</p>
+    </div>
+    <div class="card">
+        <button type="button" class="btn" id="pagi">In the Morning</button>
+        <button type="button" class="btn btn-dark" id="malam">In the Evening</button>
+    </div>
+</section>
+
+<!-- 7. DATE -->
+<section id="tanggal">
+    <div class="section-title">
+        <small>Bagian 07</small>
+        <h2>Latihan Objek Date</h2>
+        <p>Menampilkan hari, tanggal, bulan, tahun, dan waktu sekarang.</p>
+    </div>
+    <div class="card date-box">
+        <h3 id="tanggalSekarang"></h3>
+        <p class="muted">Waktu perangkat saat ini</p>
+        <div class="clock" id="jamTanggal"></div>
+    </div>
+</section>
+
+<!-- 8. WINDOW -->
+<section id="window">
+    <div class="section-title">
+        <small>Bagian 08</small>
+        <h2>Latihan Objek Window</h2>
+        <p>Contoh penggunaan alert, prompt, dan confirm.</p>
+    </div>
+    <div class="card">
+        <button type="button" class="btn" id="tesWindow">
+            Mulai Test Window Object
+        </button>
+        <div class="result" id="outputWindow" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- 9. WAKTU -->
+<section id="waktu">
+    <div class="section-title">
+        <small>Bagian 09</small>
+        <h2>Form Request dan Waktu</h2>
+        <p>Simulasi form satu halaman menggunakan JavaScript.</p>
+    </div>
+    <div class="card">
+        <form id="formWaktu">
+            <div class="field">
+                <label for="firstName">Nama Awal</label>
+                <input id="firstName" required placeholder="Masukkan nama awal">
+            </div>
+            <button class="btn" type="submit">Simpan</button>
+        </form>
+        <div class="result" id="hasilWaktu" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- 10. REGISTRASI -->
+<section id="registrasi">
+    <div class="section-title">
+        <small>Bagian 10</small>
+        <h2>Form Registrasi Mahasiswa</h2>
+        <p>Latihan event focus, blur, validasi, dan reset formulir.</p>
+    </div>
+    <div class="card">
+        <h3>📝 Registrasi Mahasiswa</h3>
+        <form id="formRegistrasi">
+            <div class="field">
+                <label for="regNim">NIM</label>
+                <input id="regNim" required placeholder="Masukkan NIM">
+            </div>
+            <div class="field">
+                <label for="regNama">Nama Lengkap</label>
+                <input id="regNama" required placeholder="Masukkan nama">
+            </div>
+            <div class="field">
+                <label for="regAlamat">Alamat</label>
+                <input id="regAlamat" required placeholder="Masukkan alamat">
+            </div>
+            <div class="actions">
+                <button class="btn" type="submit">Kirim</button>
+                <button class="btn btn-danger" type="reset">Reset</button>
+            </div>
+        </form>
+        <div class="result" id="hasilRegistrasi" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- 11. JAM DIGITAL -->
+<section id="jam">
+    <div class="section-title">
+        <small>Bagian 11</small>
+        <h2>Jam Digital</h2>
+        <p>Jam berjalan otomatis dan diperbarui setiap detik.</p>
+    </div>
+    <div class="card date-box">
+        <div class="clock" id="clockDisplay">00:00:00</div>
+        <p class="muted">Waktu lokal perangkat</p>
+    </div>
+</section>
+
+<!-- 12. BACKGROUND -->
+<section id="background">
+    <div class="section-title">
+        <small>Bagian 12</small>
+        <h2>Latihan Background CSS</h2>
+        <p>Penggunaan warna, gradasi, border, dan teks.</p>
+    </div>
+    <div class="card" style="
+        background:linear-gradient(135deg,#bbf7d0,#a5f3fc,#ddd6fe);
+        border:2px dashed #6366f1;
+        text-align:center">
+        <h3 style="color:#312e81">Tentang Saya</h3>
+        <p>Nama saya Ridho.</p>
+        <p>Umur saya 19 tahun.</p>
+        <p class="muted">Contoh penerapan background CSS.</p>
+    </div>
+</section>
+
+<!-- 13. MATH -->
+<section id="math">
+    <div class="section-title">
+        <small>Bagian 13</small>
+        <h2>Latihan Objek Math</h2>
+        <p>Contoh Math.max, Math.pow, Math.random, dan Math.sqrt.</p>
+    </div>
+    <div class="card">
+        <div class="info-box" id="hasilMath"></div>
+        <button type="button" class="btn" id="acakAngka">Acak Angka Lagi</button>
+    </div>
+</section>
+
+<!-- 14. MARQUEE -->
+<section id="marquee">
+    <div class="section-title">
+        <small>Bagian 14</small>
+        <h2>Teks Berjalan</h2>
+        <p>Simulasi marquee menggunakan animasi CSS modern.</p>
+    </div>
+    <div class="card">
+        <div class="marquee">
+            <span>✨ Hallo Friend... Apa Kabar? Welcome To My Website! ✨</span>
+        </div>
+    </div>
+</section>
+
+<!-- 15. FRAME -->
+<section id="frame">
+    <div class="section-title">
+        <small>Bagian 15</small>
+        <h2>Latihan Halaman Frame</h2>
+        <p>Contoh panel halaman yang menyerupai area frame.</p>
+    </div>
+    <div class="card" style="
+        background:linear-gradient(135deg,#eef2ff,#f5f3ff);
+        text-align:center;padding:45px 20px">
+        <div style="font-size:42px">🌐</div>
+        <h2>Halaman Website Saya</h2>
+        <p>Design by <strong>Ridho</strong></p>
+        <p class="muted">Panel ini berada dalam halaman utama,
+        bukan frame HTML terpisah.</p>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Ridho.Web</strong> — Tugas Pemrograman Web</p>
+        <p>© <span id="tahunFooter"></span> Ridho. Dibuat dengan HTML, CSS, dan JavaScript.</p>
+    </div>
+</footer>
+
+<script>
+"use strict";
+
+/* ==================== FUNGSI UMUM ==================== */
+const rupiah = angka =>
+    new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(angka);
+
+function tampilkan(id, teks) {
+    document.getElementById(id).textContent = teks;
+}
+
+function buatElemen(tag, teks) {
+    const el = document.createElement(tag);
+    el.textContent = teks;
+    return el;
+}
+
+/* ==================== 1. VARIABEL DAN PERULANGAN ==================== */
+const nim = "251091700125";
+const nama = "Ridho";
+const kelas = "03SISE002";
+
+const outputVariabel = document.getElementById("outputVariabel");
+[nim, nama, kelas].forEach((data, index) => {
+    const label = ["NIM Saya", "Nama Saya", "Kelas Saya"][index];
+    outputVariabel.appendChild(buatElemen("p", label + " = " + data));
+});
+
+const teks1 = "Aku sedang belajar ";
+const teks2 = "Pemrograman Web ";
+const teks3 = "menggunakan JavaScript.";
+
+tampilkan("outputString", teks1 + teks2 + teks3);
+
+const outputFor = document.getElementById("outputFor");
+for (let i = 1; i <= 20; i++) {
+    outputFor.appendChild(
+        buatElemen("p", i + ". Saya sedang belajar dasar pemrograman web.")
+    );
+}
+
+/* ==================== 2. TIKET PERJALANAN ==================== */
+const formTiket = document.getElementById("formTiket");
+const hargaTujuan = {
+    Jakarta: 100000,
+    Cirebon: 150000,
+    Tasikmalaya: 200000
+};
+
+function hitungTiket() {
+    const tujuan = document.getElementById("tujuan").value;
+    const jumlah = Number(document.getElementById("jumlahTiket").value);
+    const harga = hargaTujuan[tujuan];
+    const subtotal = harga * jumlah;
+    const diskon = document.getElementById("member").checked
+        ? subtotal * 0.10
+        : 0;
+    const total = subtotal - diskon;
+
+    tampilkan("hargaTiket", rupiah(harga));
+    tampilkan("subtotal", rupiah(subtotal));
+    tampilkan("diskon", rupiah(diskon));
+    tampilkan("totalBayar", rupiah(total));
+
+    const hasil = document.getElementById("hasilTiket");
+    hasil.replaceChildren();
+
+    hasil.appendChild(buatElemen("h3", "Ringkasan Pemesanan"));
+    [
+        "Nama: " + document.getElementById("namaTiket").value.trim(),
+        "Tujuan: " + tujuan,
+        "Jumlah tiket: " + jumlah,
+        "Total pembayaran: " + rupiah(total)
+    ].forEach(teks => hasil.appendChild(buatElemen("p", teks)));
+}
+
+formTiket.addEventListener("submit", event => {
+    event.preventDefault();
+    const jumlah = Number(document.getElementById("jumlahTiket").value);
+
+    if (!Number.isInteger(jumlah) || jumlah < 1 || jumlah > 100) {
+        alert("Jumlah tiket harus berupa bilangan bulat 1–100.");
+        return;
+    }
+    hitungTiket();
+});
+
+formTiket.addEventListener("reset", () => {
+    setTimeout(() => {
+        tampilkan("hargaTiket", rupiah(100000));
+        tampilkan("subtotal", rupiah(0));
+        tampilkan("diskon", rupiah(0));
+        tampilkan("totalBayar", rupiah(0));
+        document.getElementById("hasilTiket").replaceChildren();
+    }, 0);
+});
+
+/* ==================== 3. FORM BEASISWA ==================== */
+document.getElementById("formBeasiswa").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const nama = document.getElementById("namaBeasiswa").value.trim();
+    const nim = document.getElementById("nimBeasiswa").value.trim();
+    const kelas = document.getElementById("kelasBeasiswa").value.trim();
+    const jurusan = document.getElementById("jurusanBeasiswa").value;
+    const jekel = document.getElementById("jekel").value;
+    const ipkInput = document.getElementById("ipk");
+    const ipk = Number(ipkInput.value);
+
+    if (ipkInput.value.trim() === "" ||
+        !Number.isFinite(ipk) || ipk < 0 || ipk > 4) {
+        alert("Masukkan IPK yang valid antara 0,00 dan 4,00.");
+        ipkInput.focus();
+        return;
+    }
+
+    const lolos = ipk >= 3.0;
+    const hasil = document.getElementById("hasilBeasiswa");
+    hasil.replaceChildren();
+
+    hasil.appendChild(buatElemen("h3", "Data Penerima Beasiswa"));
+    [
+        "Nama: " + nama,
+        "NIM: " + nim,
+        "Kelas: " + kelas,
+        "Jurusan: " + jurusan,
+        "Jenis kelamin: " + jekel,
+        "IPK: " + ipk.toFixed(2),
+        lolos
+            ? "Status: Memenuhi kriteria beasiswa Rp1.000.000."
+            : "Status: Belum memenuhi kriteria beasiswa."
+    ].forEach(teks => hasil.appendChild(buatElemen("p", teks)));
+});
+
+document.getElementById("formBeasiswa").addEventListener("reset", () => {
+    setTimeout(() => {
+        document.getElementById("hasilBeasiswa").replaceChildren();
+    }, 0);
+});
+
+/* ==================== 4. ALERT ==================== */
+document.getElementById("pagi").addEventListener("click", () => {
+    alert("Good Morning!");
+});
+
+document.getElementById("malam").addEventListener("click", () => {
+    alert("Good Evening!");
+});
+
+/* ==================== 5. OBJEK DATE ==================== */
+const namaHari = [
+    "Minggu", "Senin", "Selasa", "Rabu",
+    "Kamis", "Jumat", "Sabtu"
+];
+
+const namaBulan = [
+    "Januari", "Februari", "Maret", "April",
+    "Mei", "Juni", "Juli", "Agustus",
+    "September", "Oktober", "November", "Desember"
+];
+
+function perbaruiWaktu() {
+    const sekarang = new Date();
+
+    tampilkan(
+        "tanggalSekarang",
+        namaHari[sekarang.getDay()] + ", " +
+        sekarang.getDate() + " " +
+        namaBulan[sekarang.getMonth()] + " " +
+        sekarang.getFullYear()
+    );
+
+    const jam = String(sekarang.getHours()).padStart(2, "0");
+    const menit = String(sekarang.getMinutes()).padStart(2, "0");
+    const detik = String(sekarang.getSeconds()).padStart(2, "0");
+    const teksJam = jam + ":" + menit + ":" + detik;
+
+    tampilkan("jamTanggal", teksJam);
+    tampilkan("clockDisplay", teksJam);
+    tampilkan("tahunFooter", sekarang.getFullYear());
+}
+
+perbaruiWaktu();
+setInterval(perbaruiWaktu, 1000);
+
+/* ==================== 6. OBJEK WINDOW ==================== */
+document.getElementById("tesWindow").addEventListener("click", () => {
+    alert("Selamat Datang!");
+
+    const angka = prompt("Inputkan angka favorit Anda:", "0");
+
+    if (angka === null) {
+        tampilkan("outputWindow", "Anda membatalkan input angka.");
+        return;
+    }
+
+    const pria = confirm("Apakah Anda pria?");
+    const hasil = document.getElementById("outputWindow");
+    hasil.replaceChildren();
+
+    hasil.appendChild(
+        buatElemen("p", "Angka favorit Anda adalah: " + angka)
+    );
+    hasil.appendChild(
+        buatElemen("p", pria ? "Boleh kenalan, dong!" : "Salam kenal!")
+    );
+});
+
+/* ==================== 7. FORM WAKTU ==================== */
+document.getElementById("formWaktu").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const nama = document.getElementById("firstName").value.trim();
+    const hasil = document.getElementById("hasilWaktu");
+    hasil.replaceChildren();
+
+    hasil.appendChild(buatElemen("h3", "Selamat Datang, " + nama + "!"));
+    hasil.appendChild(
+        buatElemen(
+            "p",
+            "Waktu permintaan diterima oleh halaman: " +
+            new Date().toLocaleString("id-ID")
+        )
+    );
+    hasil.appendChild(
+        buatElemen(
+            "p",
+            "Catatan: waktu ini berasal dari perangkat pengguna, bukan waktu server."
+        )
+    );
+});
+
+/* ==================== 8. REGISTRASI DAN EVENT ==================== */
+const formRegistrasi = document.getElementById("formRegistrasi");
+
+[
+    ["regNim", "NIM"],
+    ["regNama", "Nama"],
+    ["regAlamat", "Alamat"]
+].forEach(([id, label]) => {
+    const input = document.getElementById(id);
+
+    input.addEventListener("focus", () => {
+        input.style.backgroundColor = "#eef2ff";
+    });
+
+    input.addEventListener("blur", () => {
+        input.style.backgroundColor = "white";
+
+        if (!input.value.trim()) {
+            input.setCustomValidity(label + " belum diisi.");
+        } else {
+            input.setCustomValidity("");
+        }
+    });
+
+    input.addEventListener("input", () => {
+        input.setCustomValidity("");
+    });
+});
+
+formRegistrasi.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const nim = document.getElementById("regNim").value.trim();
+    const nama = document.getElementById("regNama").value.trim();
+    const alamat = document.getElementById("regAlamat").value.trim();
+
+    if (!nim || !nama || !alamat) {
+        alert("Mohon lengkapi semua data.");
+        return;
+    }
+
+    const hasil = document.getElementById("hasilRegistrasi");
+    hasil.replaceChildren();
+    hasil.appendChild(buatElemen("h3", "Registrasi Berhasil!"));
+
+    [
+        "NIM: " + nim,
+        "Nama: " + nama,
+        "Alamat: " + alamat,
+        "Terima kasih telah mengisi data."
+    ].forEach(teks => hasil.appendChild(buatElemen("p", teks)));
+});
+
+formRegistrasi.addEventListener("reset", () => {
+    setTimeout(() => {
+        document.getElementById("hasilRegistrasi").replaceChildren();
+    }, 0);
+});
+
+/* ==================== 9. OBJEK MATH ==================== */
+function tampilkanMath() {
+    const a = 3;
+    const b = 2;
+    const acak = Math.floor(Math.random() * 17);
+    const hasil = document.getElementById("hasilMath");
+
+    hasil.replaceChildren();
+
+    [
+        "Antara " + a + " dan " + b +
+            ", angka terbesar adalah " + Math.max(a, b),
+        b + " pangkat " + a + " adalah " + Math.pow(b, a),
+        "Angka acak: " + acak,
+        "Akar kuadrat " + acak + " adalah " +
+            Math.sqrt(acak).toFixed(2)
+    ].forEach(teks => hasil.appendChild(buatElemen("p", teks)));
+}
+
+document.getElementById("acakAngka").addEventListener("click", tampilkanMath);
+tampilkanMath();
+</script>
+
+</body>
+</html>
